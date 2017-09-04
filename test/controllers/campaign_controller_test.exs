@@ -7,12 +7,15 @@ defmodule DndPartyAdventure.CampaignControllerTest do
 
     conn = get conn, campaign_path(conn, :index)
 
+    casted_inserted = Ecto.DateTime.cast!(campaign.inserted_at)
+    casted_updated = Ecto.DateTime.cast!(campaign.updated_at)
+
     assert json_response(conn, 200) == %{
       "campaigns" => [%{
         "title" => campaign.title,
         "description" => campaign.description,
-        "inserted_at" => Ecto.DateTime.to_iso8601(campaign.inserted_at),
-        "updated_at" => Ecto.DateTime.to_iso8601(campaign.updated_at)
+        "inserted_at" => Ecto.DateTime.to_iso8601(casted_inserted),
+        "updated_at" => Ecto.DateTime.to_iso8601(casted_updated)
       }]
     }
   end
