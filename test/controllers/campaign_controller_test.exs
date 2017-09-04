@@ -1,13 +1,13 @@
 defmodule DndPartyAdventure.CampaignControllerTest do
   use DndPartyAdventure.ConnCase
-
+  import DndPartyAdventure.Factory
   test "#index renders a list of campaigns" do
     conn = build_conn()
     campaign = insert(:campaign)
 
     conn = get conn, campaign_path(conn, :index)
 
-    assert json_respons(conn, 200) == %{
+    assert json_response(conn, 200) == %{
       "campaigns" => [%{
         "title" => campaign.title,
         "description" => campaign.description,
