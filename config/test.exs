@@ -12,7 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :dnd_party_adventure, DndPartyAdventure.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
+  username: "pawelek",
   password: "postgres",
   database: "dnd_party_adventure_test",
   hostname: "localhost",

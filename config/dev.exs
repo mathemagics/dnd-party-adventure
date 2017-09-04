@@ -49,8 +49,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :dnd_party_adventure, DndPartyAdventure.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "pawelek",
+  password: "",
   database: "dnd_party_adventure_dev",
   hostname: "localhost",
   pool_size: 10
