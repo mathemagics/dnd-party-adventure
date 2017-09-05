@@ -38,5 +38,7 @@ defmodule DndPartyAdventure.Endpoint do
     key: "_dnd_party_adventure_key",
     signing_salt: "DMXE6Em3"
 
+  plug CORSPlug, origin: "http://localhost:8080"
+
   plug DndPartyAdventure.Router
 end
