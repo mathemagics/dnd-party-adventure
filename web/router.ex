@@ -22,6 +22,6 @@ defmodule DndPartyAdventure.Router do
   # Other scopes may use custom stacks.
   scope "/api", DndPartyAdventure do
     pipe_through :api
-    resources "/campaigns", CampaignController, only: [:index]
+    resources "/campaigns", CampaignController, only: [:index, :show]
   end
 end

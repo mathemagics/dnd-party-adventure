@@ -7,4 +7,9 @@ defmodule DndPartyAdventure.CampaignController do
     render conn, "index.json", campaigns: campaigns
   end
 
+  def show(conn, %{"id" => campaign_id}) do
+    campaign = Repo.get!(Campaign, campaign_id)
+    render conn, "show.json", campaign: campaign
+  end
+
 end

@@ -7,6 +7,10 @@ defmodule DndPartyAdventure.CampaignView do
     }
   end
 
+  def render("show.json", %{campaign: campaign}) do
+    %{campaign: campaign_json(campaign)}
+  end
+
   defp campaign_json(campaign) do
     %{
       title: campaign.title,
