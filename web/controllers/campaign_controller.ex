@@ -13,8 +13,8 @@ defmodule DndPartyAdventure.CampaignController do
     render conn, "show.json", campaign: campaign
   end
 
-  def create(conn, params) do
-    changeset = Campaign.changeset(%Campaign{}, params)
+  def create(conn, %{"campaign" => campaign}) do
+    changeset = Campaign.changeset(%Campaign{}, campaign)
     case Repo.insert(changeset) do
       {:ok, campaign} ->
         conn
@@ -27,4 +27,18 @@ defmodule DndPartyAdventure.CampaignController do
     end
   end
 
+  def update(conn, %{"id" => campaign_id, "campaign" => campaign}) do
+    previous = Repo.get!(Campaign, campaign_id)
+    changeset = Campaign.changeset(previous, campaign)
+    case Repo.update(changeset) do
+      {:ok, campaign} ->
+        conn
+        |> Conn.put_status(201)
+        |> render("show.json", campaign: campaign)
+      {:error, %{errors: errors}} ->
+        conn
+        |> put_status(422)
+        |> render(ErrorView, "422.json", %{errors: errors})
+    end
+  end
 end
