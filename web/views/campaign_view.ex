@@ -13,11 +13,9 @@ defmodule DndPartyAdventure.CampaignView do
 
   defp campaign_json(campaign) do
     %{
+      id: campaign.id,
       title: campaign.title,
-      description: campaign.description,
-      inserted_at: campaign.inserted_at,
-      updated_at: campaign.updated_at
+      description: campaign.description
     }
   end
-
 end
