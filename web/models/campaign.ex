@@ -7,4 +7,10 @@ defmodule DndPartyAdventure.Campaign do
     timestamps()
   end
 
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:title, :description])
+    |> validate_required([:title, :description])
+  end
+
 end
