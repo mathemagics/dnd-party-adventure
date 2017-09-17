@@ -20,7 +20,7 @@ defmodule DndPartyAdventure.Mixfile do
   def application do
     [
       mod: {DndPartyAdventure, []},
-      extra_applications: [:logger]
+      extra_applications: [:logger, :ueberauth, :ueberauth_slack]
     ]
   end
 
@@ -42,7 +42,9 @@ defmodule DndPartyAdventure.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:ex_machina, "~> 2.0", only: :test},
-      {:cors_plug, "~> 1.2"}
+      {:cors_plug, "~> 1.2"},
+      {:ueberauth, "~>0.3"},
+      {:ueberauth_slack, "~> 0.4"}
     ]
   end
 
